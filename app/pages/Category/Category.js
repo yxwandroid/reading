@@ -78,11 +78,13 @@ class Category extends React.Component {
     }
   }
 
+  //  执行刷新操作
   onRefresh = () => {
     const { categoryActions } = this.props;
     categoryActions.requestTypeList();
   };
 
+   // 选中 某个分类 执行添加或者移除 分类数组操作
   onPress = (type) => {
     const pos = tempTypeIds.indexOf(parseInt(type.id));
     if (pos === -1) {
@@ -95,6 +97,7 @@ class Category extends React.Component {
     });
   };
 
+  //  完成选择分类之后
   onSelectCategory = () => {
     if (this.state.typeIds.length === 0) {
       Alert.alert('提示', '您确定不选择任何分类吗？', [
@@ -115,7 +118,7 @@ class Category extends React.Component {
       NavigationUtil.reset(this.props.navigation, 'Home');
     }
   };
-
+  // 选择确认之后 的操做
   onActionSelected = () => {
     if (tempTypeIds.length > maxCategory) {
       ToastUtil.showShort(`不要超过${maxCategory}个类别哦`);
@@ -128,10 +131,7 @@ class Category extends React.Component {
     InteractionManager.runAfterInteractions(() => {
       store.get('typeIds').then((typeIds) => {
         if (
-          typeIds.sort().toString() ===
-          Array.from(tempTypeIds)
-            .sort()
-            .toString()
+          typeIds.sort().toString() === Array.from(tempTypeIds).sort().toString()
         ) {
           navigate('Main');
           return;
@@ -143,10 +143,11 @@ class Category extends React.Component {
 
   routeMain = () => {
     const { navigate } = this.props.navigation;
-    DeviceEventEmitter.emit('changeCategory', this.state.typeIds);
+    DeviceEventEmitter.emit('changeCategory', this.state.typeIds);// 发送通知到主界面 更新
     navigate('Main');
   };
 
+  // 渲染 item 逻辑
   renderItem = (item) => {
     const isSelect =
       Array.from(this.state.typeIds).indexOf(parseInt(item.id)) !== -1;
@@ -169,6 +170,7 @@ class Category extends React.Component {
     );
   };
 
+  // 渲染  GridView 布局的时候
   renderGridView = () => {
     const { category } = this.props;
     return (
@@ -203,22 +205,14 @@ class Category extends React.Component {
       return (
         <View style={styles.container}>
           <View style={styles.header}>
-            <Text
-              style={[
-                styles.btnText,
-                { color: 'black', padding: 5, fontSize: 18 }
-              ]}
-            >
-              初次见面，请选择您感兴趣的1-5个类别
-            </Text>
+            <Text style={[styles.btnText, { color: 'black', padding: 5, fontSize: 18 }]}>初次见面，请选择您感兴趣的1-5个类别 </Text>
           </View>
           {this.renderGridView()}
           <Button
             containerStyle={styles.sureBtn}
             style={styles.btnText}
             text="确认"
-            onPress={() => this.onSelectCategory()}
-          />
+            onPress={() => this.onSelectCategory()} />
         </View>
       );
     }
