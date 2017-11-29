@@ -20,6 +20,7 @@ import PropTypes from 'prop-types';
 import { ViewPropTypes, Text, TouchableOpacity } from 'react-native';
 
 const propTypes = {
+  // 利用prop-types对组件的props中的变量进行类型检测
   onPress: PropTypes.func,
   disabled: PropTypes.bool,
   style: Text.propTypes.style,
@@ -27,7 +28,6 @@ const propTypes = {
   text: PropTypes.string,
   activeOpacity: PropTypes.number
 };
-
 const Button = ({
   onPress,
   disabled,
@@ -40,7 +40,7 @@ const Button = ({
     style={containerStyle}
     onPress={onPress}
     disabled={disabled}
-    activeOpacity={activeOpacity}
+    activeOpacity={activeOpacity}//触摸时透明度的设置
   >
     <Text style={style}>{text}</Text>
   </TouchableOpacity>

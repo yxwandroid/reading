@@ -33,6 +33,7 @@ class About extends React.Component {
     tabBarIcon: ({ tintColor }) => (
       <Icon name="md-information-circle" size={25} color={tintColor} />
     ),
+    //  右上角的控制按钮
     headerRight: (
       <Icon.Button
         name="logo-github"
