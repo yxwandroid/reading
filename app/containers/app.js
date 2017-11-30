@@ -56,6 +56,7 @@ const App = StackNavigator(
     Category: {
       screen: CategoryContainer,
       navigationOptions: {
+        // 设置左边标题不显示
         headerLeft: null
       }
     },
@@ -68,16 +69,19 @@ const App = StackNavigator(
     Web: { screen: WebViewPage }
   },
   {
+    //  flot  screen  none
     headerMode: 'screen',
     navigationOptions: {
       headerStyle: {
+        // 设置标题栏颜色
         backgroundColor: '#3e9ce9'
       },
       headerTitleStyle: {
+        // 标题栏title颜色
         color: '#fff',
         fontSize: 20
       },
-      headerTintColor: '#fff'
+      headerTintColor: '#f0f'
     }
   }
 );
