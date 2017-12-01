@@ -31,20 +31,20 @@ const TabContainer = TabNavigator(
     About: { screen: About }
   },
   {
-    lazy: true,
-    tabBarPosition: 'bottom',
+    lazy: true, //是否使用懒加载   默认是 false
+    tabBarPosition: 'bottom',   //位置 top bottom
     tabBarOptions: {
-      activeTintColor: '#3e9ce9',
-      inactiveTintColor: '#999999',
-      showIcon: true,
+      activeTintColor: '#3e9ce9', //字体颜色
+      inactiveTintColor: '#999999', //label和icon的前景色 不活跃状态下
+      showIcon: true, //是否显示ico
       style: {
         backgroundColor: '#fff'
       },
       indicatorStyle: {
         opacity: 0
       },
-      tabStyle: {
-        padding: 0
+      tabStyle: {//标签指示器的样式对象（选项卡底部的行）。安卓底部会多出一条线，可以将height设置为0来暂时解决这个问题
+          padding: 0
       }
     }
   }
@@ -81,7 +81,8 @@ const App = StackNavigator(
         color: '#fff',
         fontSize: 20
       },
-      headerTintColor: '#f0f'
+        //提示文字颜色
+      headerTintColor: '#fff'
     }
   }
 );

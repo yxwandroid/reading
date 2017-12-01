@@ -38,7 +38,7 @@ class CategoryContainer extends React.Component {
           underlayColor="transparent"
           activeOpacity={0.8}
           onPress={() => {
-            navigation.state.params.handleCheck();
+            navigation.state.params.handleCheck();  // 相当于声明需要执行的方法 传递给子控件
           }}
         />
         )

@@ -23,15 +23,16 @@ import DeviceInfo from 'react-native-device-info';
 import Icon from 'react-native-vector-icons/Ionicons';
 import ToastUtil from '../../utils/ToastUtil';
 
-let feedbackText;
+let feedbackText; //全局的临时变量
 
 class Feedback extends React.Component {
   static navigationOptions = ({ navigation }) => ({
-    title: '建议',
+    title: '建议', //tabBar 标题
+      // tabBar 图标
     tabBarIcon: ({ tintColor }) => (
       <Icon name="md-thumbs-up" size={25} color={tintColor} />
     ),
-    headerRight: (
+    headerRight: (//右侧图标
       <Icon.Button
         name="md-checkmark"
         backgroundColor="transparent"
@@ -45,6 +46,7 @@ class Feedback extends React.Component {
   });
   componentDidMount() {
     feedbackText = '';
+    //绑定方法到 navigation 上
     this.props.navigation.setParams({ handleCheck: this.onActionSelected });
   }
 
