@@ -39,7 +39,8 @@ let tempTypeIds = [];
 let maxCategory = 5; // 默认最多5个类别，远端可配置
 
 const propTypes = {
-  categoryActions: PropTypes.object,
+  categoryActions: PropTypes.object,  // 指定类型的属性构成的对象
+    // 你可以在任意东西后面加上 `isRequired` 来确保 如果 prop 没有提供 就会显示一个警告。
   category: PropTypes.object.isRequired
 };
 
@@ -54,6 +55,7 @@ class Category extends React.Component {
   componentWillMount() {
     const { params } = this.props.navigation.state;
     if (params === undefined || !params.isFirst) {
+      //Interactionmanager可以将一些耗时较长的工作安排到所有互动或动画完成之后再进行。
       InteractionManager.runAfterInteractions(() => {
         store.get('typeIds').then((typeIds) => {
           tempTypeIds = typeIds;
@@ -66,6 +68,7 @@ class Category extends React.Component {
   }
 
   componentDidMount() {
+          console.log('category')
     const { categoryActions } = this.props;
     categoryActions.requestTypeList();
     const query = new AV.Query('Reading_Settings');
@@ -90,7 +93,7 @@ class Category extends React.Component {
     if (pos === -1) {
       tempTypeIds.push(parseInt(type.id));
     } else {
-      tempTypeIds.splice(pos, 1);
+      tempTypeIds.splice(pos, 1);//删除数据
     }
     this.setState({
       typeIds: tempTypeIds
@@ -156,9 +159,7 @@ class Category extends React.Component {
         key={item.id}
         containerStyle={[
           styles.categoryBtn,
-          isSelect
-            ? { backgroundColor: '#3e9ce9' }
-            : { backgroundColor: '#fcfcfc' }
+          isSelect ? { backgroundColor: '#3e9ce9' } : { backgroundColor: '#fcfcfc' }
         ]}
         style={[
           styles.categoryText,

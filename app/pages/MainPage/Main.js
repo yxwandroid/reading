@@ -59,6 +59,7 @@ class Main extends React.Component {
   }
 
   componentDidMount() {
+      console.log('main')
     const { readActions } = this.props;
     DeviceEventEmitter.addListener('changeCategory', (typeIds) => {
       typeIds.forEach((typeId) => {

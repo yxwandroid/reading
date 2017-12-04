@@ -45,6 +45,7 @@ class Feedback extends React.Component {
     )
   });
   componentDidMount() {
+    console.log('feeback')
     feedbackText = '';
     //绑定方法到 navigation 上
     this.props.navigation.setParams({ handleCheck: this.onActionSelected });

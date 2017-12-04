@@ -16,10 +16,10 @@
  *
  */
 import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';   //关联 redux
+import { bindActionCreators } from 'redux';   // 是通过dispatch将action包裹起来，这样可以通过
 import Icon from 'react-native-vector-icons/Ionicons';
-import * as categoryCreators from '../actions/category';
+import * as categoryCreators from '../actions/category';   //关联 actions
 
 import Category from '../pages/Category/Category';
 
