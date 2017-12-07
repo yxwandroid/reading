@@ -29,3 +29,12 @@ https://richardcao.me/2016/09/07/React-Native-With-Redux-Refactor/
     https://reactnative.cn/dredux-loggerredux-loggerocs/0.50/refreshcontrol.html
 
 
+####  react-native-code-push
+
+    http://www.jianshu.com/p/6e96c6038d80
+    
+    
+    
+#### react生命周期 
+
+http://www.jianshu.com/p/4784216b8194
