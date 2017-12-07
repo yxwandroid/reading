@@ -28,8 +28,8 @@ export function* requestTypeList() {
   try {
     yield put(fetchTypeList());
     const typeList = yield call(RequestUtil.request, WEXIN_ARTICLE_TYPE, 'get');
-    yield put(receiveTypeList(typeList.showapi_res_body.typeList));
-    yield call(store.save, 'typeList', typeList.showapi_res_body.typeList);
+    yield put(receiveTypeList(typeList.showapi_res_body.typeList));   //Put 触发一个 action
+    yield call(store.save, 'typeList', typeList.showapi_res_body.typeList);   // call 调用一个函数
     const errorMessage = typeList.showapi_res_error;
     if (errorMessage && errorMessage !== '') {
       yield ToastUtil.showShort(errorMessage);
@@ -42,7 +42,7 @@ export function* requestTypeList() {
 
 export function* watchRequestTypeList() {
   while (true) {
-    yield take(types.REQUEST_TYPE_LIST);
-    yield fork(requestTypeList);
+    yield take(types.REQUEST_TYPE_LIST);  //take  暂停并等待 action 到达
+    yield fork(requestTypeList);     //fork  执行非阻塞的操作
   }
 }

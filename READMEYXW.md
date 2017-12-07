@@ -1,3 +1,8 @@
+https://richardcao.me/2016/09/07/React-Native-With-Redux-Refactor/
+
+
+
+
 #### react-navigation
     介绍比较全面的文章
     http://blog.csdn.net/u012878818/article/details/74678826
@@ -21,6 +26,6 @@
     
 ####     RefreshControl
     下拉刷新控件 
-    https://reactnative.cn/docs/0.50/refreshcontrol.html
+    https://reactnative.cn/dredux-loggerredux-loggerocs/0.50/refreshcontrol.html
 
 

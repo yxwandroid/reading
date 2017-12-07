@@ -21,6 +21,9 @@ import createSagaMiddleware, { END } from 'redux-saga';
 import rootReducer from '../reducers/index';
 
 const middlewares = [];
+
+
+//redux-logger  所有action触发了state的变化，都会用比较鲜艳的log日志打印出来  用chrome调试就可以很明显的看到，
 const { logger } = require('redux-logger');
 
 // configuring saga middleware
